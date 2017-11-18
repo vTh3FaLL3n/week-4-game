@@ -21,17 +21,23 @@ $(document).ready(function () {
   // }
   function newCrystals() {
     var numbers = []
-    while (numbers.length < 4) {
-      var randomnumber = Math.ceil(Math.random() * 12)
-      var found = false;
-      for (var i = 0; i < numbers.length; i++) {
-        if (numbers[i] == randomnumber) {
-          found = true;
-          break
-        }
-      }
-      if (!found) numbers[numbers.length] = randomnumber;
+    for (var i=0 ; i<4 ; i++ ){
+      var randomnumber = Math.ceil(Math.random() * 12);
+      numbers.push(randomnumber);
+      
     }
+
+    // while (numbers.length < 4) {
+    //   var randomnumber = Math.ceil(Math.random() * 12)
+    //   var found = false;
+    //   for (var i = 0; i < numbers.length; i++) {
+    //     if (numbers[i] === randomnumber) {
+    //       found = true;
+    //       break
+    //     }
+    //   }
+    //   if (!found) numbers[numbers.length] = randomnumber;
+    // }
 
     for (var i = 0; i < numbers.length; i++) {
       var dragonballImage = $("<img>");
@@ -44,6 +50,8 @@ $(document).ready(function () {
 
 
   $(".ball-image").on("click", function () {
+
+
     var ballValue = ($(this).attr("data-crystalvalue"));
     ballValue = parseInt(ballValue);
     counter += ballValue;
@@ -55,6 +63,7 @@ $(document).ready(function () {
      targetNumber = Math.floor(Math.random() * 120) + 19;;
       $("#dragonPointsGoal").text(targetNumber);
       console.log("reset", targetNumber);
+      
     }
 
 
